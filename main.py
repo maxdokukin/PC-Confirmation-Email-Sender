@@ -29,6 +29,7 @@ def send_email(data):
             server.starttls()
             server.login(data['sender_email'], os.getenv("EMAIL_PASS"))
             server.sendmail(data['sender_email'], data['recipient_email'], message.as_string())
+            server.sendmail(data['sender_email'], data['sender_email'], message.as_string())
 
         logging.info("Email sent successfully to %s", data['recipient_email'])
 
